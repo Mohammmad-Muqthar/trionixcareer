@@ -1,0 +1,592 @@
+/* =========================================================
+   TRIONIX GLOBAL — EMPLOYEE VIDEO CAROUSEL
+========================================================= */
+
+.careers-culture,
+.careers-culture * {
+  box-sizing: border-box;
+}
+
+.careers-culture {
+  position: relative;
+
+  width: 100%;
+  padding: 78px 28px 85px;
+
+  background: #ffffff;
+  color: #111111;
+
+  font-family: "Manrope", Arial, sans-serif;
+}
+
+/* KEEP THE APPROVED CAROUSEL WIDTH */
+
+.careers-culture__container {
+  width: min(1260px, 100%);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   HEADING — NO LINES ABOVE
+========================================================= */
+
+.careers-culture__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-bottom: 38px;
+
+  text-align: center;
+}
+
+.careers-culture__heading {
+  margin: 0;
+
+  color: #111111;
+
+  font-family: inherit;
+  font-size: clamp(32px, 3vw, 46px);
+  font-weight: 700;
+
+  line-height: 1.2;
+  letter-spacing: -0.055em;
+}
+
+.careers-culture__subtitle {
+  max-width: 530px;
+
+  margin: 13px 0 0;
+
+  color: #6b7280;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   CAROUSEL WRAPPER
+========================================================= */
+
+.careers-culture__carousel {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+}
+
+/* =========================================================
+   LEFT AND RIGHT CAROUSEL BUTTONS
+========================================================= */
+
+.careers-culture__nav {
+  position: absolute;
+
+  top: 50%;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  border: 1px solid #d9e0e8;
+  border-radius: 0;
+
+  background: #ffffff;
+  color: #1c2638;
+
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease,
+    opacity 250ms ease;
+}
+
+/* PLACE BUTTONS BESIDE THE VIDEO CARDS */
+
+.careers-culture__nav--prev {
+  left: -61px;
+}
+
+.careers-culture__nav--next {
+  right: -61px;
+}
+
+.careers-culture__nav:hover:not(:disabled) {
+  border-color: #1c2638;
+  background: #1c2638;
+  color: #ffffff;
+}
+
+.careers-culture__nav:disabled {
+  opacity: 0.32;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   SLIDER — TWO CARDS ON DESKTOP
+========================================================= */
+
+.careers-culture__slider {
+  --culture-card-gap: 22px;
+
+  position: relative;
+
+  display: grid;
+  grid-auto-flow: column;
+
+  grid-auto-columns:
+    calc((100% - var(--culture-card-gap)) / 2);
+
+  gap: var(--culture-card-gap);
+
+  width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+
+  scrollbar-width: none;
+}
+
+.careers-culture__slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================================================
+   SLIDES
+========================================================= */
+
+.careers-culture__slide {
+  position: relative;
+
+  min-width: 0;
+  width: 100%;
+
+  scroll-snap-align: none;
+}
+
+.careers-culture__slide:nth-child(odd) {
+  scroll-snap-align: start;
+}
+
+/* =========================================================
+   VIDEO CARD
+========================================================= */
+
+.careers-culture__card {
+  min-width: 0;
+  width: 100%;
+}
+
+/* SAME SIZE FOR ALL THUMBNAILS AND PLAYERS */
+
+.careers-culture__video-frame {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  border: 0;
+  border-radius: 0;
+
+  background: #1d2530;
+}
+
+/* =========================================================
+   THUMBNAIL
+========================================================= */
+
+.careers-culture__video-button {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 0;
+  border-radius: 0;
+
+  background: #1d2530;
+
+  font-family: inherit;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+/* NO IMAGE HOVER EFFECT */
+
+.careers-culture__video-button,
+.careers-culture__video-button * {
+  transition: none !important;
+}
+
+.careers-culture__thumbnail {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: none;
+  filter: none;
+}
+
+/* SUBTLE GRADIENT FOR TITLE READABILITY */
+
+.careers-culture__image-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(7, 13, 23, 0.10) 0%,
+    rgba(7, 13, 23, 0.03) 42%,
+    rgba(7, 13, 23, 0.68) 100%
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   VIDEO TITLE — NO TRIONIX GLOBAL LABEL
+========================================================= */
+
+.careers-culture__image-title {
+  position: absolute;
+
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+
+  z-index: 2;
+
+  max-width: 86%;
+
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: clamp(19px, 1.8vw, 27px);
+  font-weight: 700;
+
+  line-height: 1.25;
+  letter-spacing: -0.045em;
+}
+
+/* =========================================================
+   PLAY BUTTON
+========================================================= */
+
+.careers-culture__play-button {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 76px;
+  height: 76px;
+
+  border-radius: 50%;
+
+  background: #259bc2;
+  color: #ffffff;
+
+  transform: translate(-50%, -50%);
+}
+
+.careers-culture__play-button svg {
+  display: block;
+
+  width: 30px;
+  height: 30px;
+
+  margin-left: 4px;
+}
+
+/* =========================================================
+   INLINE YOUTUBE PLAYER
+========================================================= */
+
+.careers-culture__iframe {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  border-radius: 0;
+
+  background: #000000;
+}
+
+/* =========================================================
+   CAPTION
+========================================================= */
+
+.careers-culture__caption {
+  min-height: 46px;
+
+  margin: 12px 0 0;
+
+  color: #191919;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.careers-culture__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  width: 100%;
+  margin-top: 28px;
+}
+
+.careers-culture__pagination-dot {
+  display: block;
+
+  width: 9px;
+  height: 9px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #d2d7de;
+
+  cursor: pointer;
+
+  transition:
+    background-color 250ms ease,
+    transform 250ms ease;
+}
+
+.careers-culture__pagination-dot--active {
+  background: #259bc2;
+  transform: scale(1.2);
+}
+
+/* =========================================================
+   LAPTOP — KEEP BUTTONS INSIDE SCREEN
+========================================================= */
+
+@media (max-width: 1400px) {
+  .careers-culture__nav--prev {
+    left: 10px;
+  }
+
+  .careers-culture__nav--next {
+    right: 10px;
+  }
+
+  .careers-culture__nav {
+    background: rgba(255, 255, 255, 0.94);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .careers-culture {
+    padding: 70px 24px 75px;
+  }
+
+  .careers-culture__header {
+    margin-bottom: 32px;
+  }
+
+  .careers-culture__heading {
+    font-size: clamp(30px, 4.6vw, 42px);
+  }
+
+  .careers-culture__slider {
+    --culture-card-gap: 16px;
+  }
+
+  .careers-culture__image-title {
+    font-size: 18px;
+  }
+
+  .careers-culture__play-button {
+    width: 66px;
+    height: 66px;
+  }
+
+  .careers-culture__play-button svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .careers-culture__caption {
+    font-size: 12px;
+  }
+
+  .careers-culture__nav {
+    width: 38px;
+    height: 38px;
+  }
+
+  .careers-culture__nav svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* =========================================================
+   MOBILE — ONE CARD PER PAGE
+========================================================= */
+
+@media (max-width: 650px) {
+  .careers-culture {
+    padding: 60px 18px 65px;
+  }
+
+  .careers-culture__header {
+    margin-bottom: 29px;
+  }
+
+  .careers-culture__heading {
+    font-size: clamp(28px, 7vw, 36px);
+  }
+
+  .careers-culture__subtitle {
+    max-width: 350px;
+    font-size: 12px;
+  }
+
+  .careers-culture__slider {
+    --culture-card-gap: 14px;
+
+    grid-auto-columns: 100%;
+  }
+
+  .careers-culture__slide,
+  .careers-culture__slide:nth-child(odd) {
+    scroll-snap-align: start;
+  }
+
+  .careers-culture__image-title {
+    right: 15px;
+    bottom: 14px;
+    left: 15px;
+
+    font-size: clamp(17px, 4.8vw, 22px);
+  }
+
+  .careers-culture__play-button {
+    width: 62px;
+    height: 62px;
+  }
+
+  .careers-culture__play-button svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .careers-culture__caption {
+    min-height: 45px;
+
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  /* SMALLER BUTTONS ON BOTH SIDES */
+
+  .careers-culture__nav {
+    width: 34px;
+    height: 34px;
+  }
+
+  .careers-culture__nav--prev {
+    left: 6px;
+  }
+
+  .careers-culture__nav--next {
+    right: 6px;
+  }
+
+  .careers-culture__nav svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .careers-culture__pagination {
+    margin-top: 23px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.careers-culture button:focus-visible {
+  outline: 2px solid #259bc2;
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .careers-culture *,
+  .careers-culture *::before,
+  .careers-culture *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

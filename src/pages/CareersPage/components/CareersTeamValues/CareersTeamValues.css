@@ -1,0 +1,765 @@
+/* =========================================================
+   TRIONIX GLOBAL — TEAM VALUES
+========================================================= */
+
+.careers-team-values,
+.careers-team-values *,
+.team-values-popup,
+.team-values-popup * {
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.careers-team-values {
+  width: 100%;
+  padding: 90px 28px 100px;
+
+  background: #f7f8fb;
+  color: #202637;
+
+  font-family: "Manrope", Arial, sans-serif;
+}
+
+.team-values__container {
+  width: min(1360px, 100%);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   CENTERED HEADING
+========================================================= */
+
+.team-values__heading {
+  margin: 0 0 48px;
+
+  color: #202637;
+
+  font-family: inherit;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 700;
+
+  line-height: 1.2;
+  letter-spacing: -0.055em;
+
+  text-align: center;
+}
+
+/* =========================================================
+   CAROUSEL
+========================================================= */
+
+.team-values__carousel {
+  display: grid;
+
+  grid-template-columns:
+    46px
+    minmax(0, 1fr)
+    46px;
+
+  align-items: center;
+
+  gap: 18px;
+
+  width: 100%;
+}
+
+/* =========================================================
+   SQUARE CAROUSEL BUTTONS
+========================================================= */
+
+.team-values__carousel-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+
+  padding: 0;
+
+  border: 1px solid #d9e0e8;
+  border-radius: 0;
+
+  background: #ffffff;
+  color: #1c2638;
+
+  cursor: pointer;
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease;
+}
+
+.team-values__carousel-arrow:hover:not(:disabled) {
+  border-color: #1c2638;
+
+  background: #1c2638;
+  color: #ffffff;
+}
+
+.team-values__carousel-arrow:disabled {
+  opacity: 0.32;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   SLIDER — 3 DESKTOP, 2 TABLET, 1 MOBILE
+========================================================= */
+
+.team-values__slider {
+  --team-values-gap: 20px;
+  --team-values-visible: 3;
+
+  position: relative;
+
+  display: grid;
+  grid-auto-flow: column;
+
+  grid-auto-columns:
+    calc(
+      (
+        100% -
+        (var(--team-values-visible) - 1) *
+        var(--team-values-gap)
+      ) / var(--team-values-visible)
+    );
+
+  gap: var(--team-values-gap);
+
+  width: 100%;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+
+  scrollbar-width: none;
+}
+
+.team-values__slider::-webkit-scrollbar {
+  display: none;
+}
+
+.team-values__slide {
+  min-width: 0;
+  width: 100%;
+
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* =========================================================
+   EQUAL-HEIGHT CARDS
+========================================================= */
+
+.team-values__card {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 540px;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid #e4e8ef;
+  border-radius: 0;
+
+  background: #ffffff;
+  color: #202637;
+
+  font-family: inherit;
+
+  box-shadow: 0 8px 28px rgba(27, 38, 64, 0.04);
+
+  transition:
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+/* =========================================================
+   CARD IMAGE
+========================================================= */
+
+.team-values__card-image {
+  flex: 0 0 280px;
+
+  width: 100%;
+  height: 280px;
+
+  overflow: hidden;
+
+  background: #dfe4ec;
+}
+
+.team-values__card-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 32%;
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   CARD CONTENT — NO CATEGORY LABEL
+========================================================= */
+
+.team-values__card-content {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  min-height: 0;
+
+  padding: 26px 24px 25px;
+}
+
+.team-values__card-title {
+  display: -webkit-box;
+  overflow: hidden;
+
+  margin: 0;
+
+  color: #202637;
+
+  font-family: inherit;
+  font-size: clamp(19px, 1.65vw, 23px);
+  font-weight: 700;
+
+  line-height: 1.32;
+  letter-spacing: -0.045em;
+
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.team-values__card-quote {
+  display: -webkit-box;
+  overflow: hidden;
+
+  margin: 13px 0 0;
+
+  color: #687386;
+
+  font-family: inherit;
+  font-size: 12px;
+
+  line-height: 1.75;
+
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* =========================================================
+   READ MORE + ANIMATED ARROW
+========================================================= */
+
+.team-values__read-more {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+
+  gap: 10px;
+
+  margin-top: auto;
+  padding: 15px 0 0;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
+  color: #273956;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: color 250ms ease;
+}
+
+.team-values__read-more span {
+  position: relative;
+}
+
+.team-values__read-more span::after {
+  content: "";
+
+  position: absolute;
+
+  right: 0;
+  bottom: -4px;
+  left: 0;
+
+  height: 1px;
+
+  background: currentColor;
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.team-values__read-more svg {
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   CARD AND READ MORE HOVER
+========================================================= */
+
+@media (hover: hover) {
+  .team-values__card:hover {
+    border-color: #cbd5e3;
+
+    box-shadow:
+      0 15px 38px rgba(27, 38, 64, 0.08);
+  }
+
+  .team-values__card:hover
+  .team-values__card-image img {
+    transform: scale(1.04);
+  }
+
+  .team-values__read-more:hover {
+    color: #4c6ca3;
+  }
+
+  .team-values__read-more:hover span::after {
+    transform: scaleX(1);
+  }
+
+  .team-values__read-more:hover svg {
+    transform: translateX(6px);
+  }
+}
+
+/* =========================================================
+   POPUP — FULL PAGE OVERLAY
+========================================================= */
+
+.team-values-popup {
+  position: fixed;
+  inset: 0;
+
+  z-index: 100000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  font-family: "Manrope", Arial, sans-serif;
+}
+
+/* DIMMED BACKGROUND */
+
+.team-values-popup__backdrop {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(25, 31, 47, 0.6);
+
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* =========================================================
+   POPUP PANEL — SMALL AND CENTERED
+========================================================= */
+
+.team-values-popup__panel {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  width: min(760px, 100%);
+
+  height: min(610px, calc(100dvh - 48px));
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 30px 100px rgba(20, 29, 51, 0.26);
+
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.team-values-popup__close {
+  position: absolute;
+
+  top: 17px;
+  right: 17px;
+
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+
+  padding: 0;
+
+  border: 1px solid rgba(37, 47, 68, 0.12);
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #243047;
+
+  cursor: pointer;
+
+  transition:
+    background-color 250ms ease,
+    transform 250ms ease;
+}
+
+.team-values-popup__close:hover {
+  background: #e9edf6;
+
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   POPUP CONTENT
+========================================================= */
+
+.team-values-popup__scroll {
+  flex: 1 1 auto;
+
+  min-height: 0;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  padding: 58px 52px 48px;
+
+  overscroll-behavior: contain;
+
+  scrollbar-width: thin;
+  scrollbar-color: #cad1df transparent;
+}
+
+.team-values-popup__story {
+  width: 100%;
+}
+
+/* BIGGER POPUP TITLE */
+
+.team-values-popup__title {
+  max-width: 590px;
+
+  margin: 0;
+
+  color: #20283a;
+
+  font-family: inherit;
+  font-size: clamp(34px, 3.3vw, 45px);
+  font-weight: 800;
+
+  line-height: 1.18;
+  letter-spacing: -0.055em;
+}
+
+/* BIGGER FEATURED QUOTE */
+
+.team-values-popup__quote {
+  margin: 26px 0 0;
+  padding-left: 18px;
+
+  border-left: 3px solid #a8b7d9;
+
+  color: #485a7d;
+
+  font-family: inherit;
+  font-size: clamp(17px, 1.65vw, 20px);
+  font-weight: 600;
+
+  line-height: 1.65;
+  letter-spacing: -0.025em;
+}
+
+/* BIGGER FULL MESSAGE */
+
+.team-values-popup__message {
+  margin-top: 29px;
+}
+
+.team-values-popup__message p {
+  margin: 0 0 20px;
+
+  color: #596579;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 400;
+
+  line-height: 1.9;
+}
+
+.team-values-popup__message p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   TABLET — TWO CARDS
+========================================================= */
+
+@media (max-width: 980px) {
+  .careers-team-values {
+    padding: 76px 24px 85px;
+  }
+
+  .team-values__carousel {
+    grid-template-columns:
+      40px
+      minmax(0, 1fr)
+      40px;
+
+    gap: 12px;
+  }
+
+  .team-values__carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .team-values__slider {
+    --team-values-visible: 2;
+    --team-values-gap: 16px;
+  }
+
+  .team-values__card {
+    height: 525px;
+  }
+
+  .team-values__card-image {
+    flex-basis: 260px;
+    height: 260px;
+  }
+
+  .team-values__card-content {
+    padding: 24px 21px;
+  }
+
+  .team-values__card-title {
+    font-size: 20px;
+  }
+
+  .team-values-popup__scroll {
+    padding: 53px 42px 42px;
+  }
+}
+
+/* =========================================================
+   MOBILE — ONE CARD + CENTERED ARROW BUTTONS
+========================================================= */
+
+@media (max-width: 650px) {
+  .careers-team-values {
+    padding: 62px 18px 72px;
+  }
+
+  .team-values__heading {
+    margin-bottom: 30px;
+
+    font-size: clamp(33px, 8vw, 44px);
+  }
+
+  /*
+    Four grid columns allow the two arrow buttons
+    to sit next to each other at the center.
+  */
+
+  .team-values__carousel {
+    grid-template-columns:
+      minmax(0, 1fr)
+      42px
+      42px
+      minmax(0, 1fr);
+
+    gap: 16px 12px;
+  }
+
+  /* CAROUSEL TAKES FULL WIDTH */
+
+  .team-values__slider {
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    --team-values-visible: 1;
+    --team-values-gap: 14px;
+  }
+
+  /* PREVIOUS BUTTON — CENTER LEFT */
+
+  .team-values__carousel-arrow--prev {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  /* NEXT BUTTON — CENTER RIGHT */
+
+  .team-values__carousel-arrow--next {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  .team-values__carousel-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* MOBILE CARD */
+
+  .team-values__card {
+    height: 530px;
+  }
+
+  .team-values__card-image {
+    flex-basis: 270px;
+    height: 270px;
+  }
+
+  .team-values__card-content {
+    padding: 22px 20px;
+  }
+
+  .team-values__card-title {
+    font-size: 21px;
+  }
+
+  .team-values__card-quote {
+    font-size: 12px;
+  }
+
+  /* =====================================================
+     MOBILE POPUP
+  ===================================================== */
+
+  .team-values-popup {
+    padding: 12px;
+  }
+
+  .team-values-popup__panel {
+    width: 100%;
+
+    height: min(
+      620px,
+      calc(100dvh - 24px)
+    );
+
+    border-radius: 8px;
+  }
+
+  .team-values-popup__scroll {
+    padding: 58px 25px 35px;
+  }
+
+  .team-values-popup__title {
+    font-size: clamp(30px, 7.5vw, 39px);
+  }
+
+  .team-values-popup__quote {
+    margin-top: 23px;
+
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .team-values-popup__message {
+    margin-top: 25px;
+  }
+
+  .team-values-popup__message p {
+    margin-bottom: 17px;
+
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .team-values-popup__close {
+    top: 11px;
+    right: 11px;
+
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+  .team-values__card-content {
+    padding: 19px;
+  }
+
+  .team-values__card-title {
+    font-size: 19px;
+  }
+
+  .team-values-popup__scroll {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.careers-team-values button:focus-visible,
+.team-values-popup button:focus-visible {
+  outline: 2px solid #6383c2;
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .careers-team-values *,
+  .careers-team-values *::before,
+  .careers-team-values *::after,
+  .team-values-popup *,
+  .team-values-popup *::before,
+  .team-values-popup *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
